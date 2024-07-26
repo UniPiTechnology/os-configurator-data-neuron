@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+DH_VERBOSE = 1
+
+ifeq ("", "###RPI_ARCH###")
+LINUX_BUILD_PATH = $(shell dpkg -L unipi-kernel-headers | sed -n '/^\/lib\/modules\/.*\/build$$/p')
+else
+ifeq ("bullseye", "###DEBIAN_VERSION###")
+RPI_FIRMWARE_VER = $(shell dpkg-query -f='$${Version}' -W raspberrypi-kernel-headers)
+# the ###RPI_ARCH### is replaced by either v7 or v8 via build-before-script
+LINUX_BUILD_PATH = $(shell dpkg -L raspberrypi-kernel-headers | sed -n '/^\/lib\/modules\/.*-###RPI_ARCH###.*\/build$$/p'|head -1)
+# else
+# RPI_FIRMWARE_PKG = $(shell dpkg-query -f='$${Package}' -W linux-headers-*-rpi-###RPI_ARCH###)
+# LINUX_BUILD_PATH = $(shell dpkg -L $(RPI_FIRMWARE_PKG) | sed -n '/^\/lib\/modules\/.*\/build$$/p')
+endif
+endif
+
+KERNEL_VERSION = $(subst /lib/modules/,,$(subst /build,,$(LINUX_BUILD_PATH)))
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	dh_auto_clean -- LINUX_BUILD_PATH="$(LINUX_BUILD_PATH)"
+
+override_dh_auto_build:
+	dh_auto_build -- LINUX_BUILD_PATH="$(LINUX_BUILD_PATH)"
+
+override_dh_auto_install:
+	dh_auto_install
+	@debian/script-generator
+
+

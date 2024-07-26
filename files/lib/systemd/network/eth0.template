@@ -1,0 +1,6 @@
+[Match]
+Path=platform-3f980000.usb-usb-0:1.1:1.0 platform-3f980000.usb-usb-0:1.1.1:1.0 platform-1f00100000.ethernet platform-fd580000.ethernet
+##   rpi3B 1.2(a02082)                   3B+ 1.2(a020d3)                       rpi5B 1.0 (c04170)           rpi4B 1.5 (c03115)
+
+[Network]
+# This file serves as template only for unipi-mervis-tools

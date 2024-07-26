@@ -1,0 +1,17 @@
+*~
+*.swp
+*.o
+*.la
+*.lo
+*.log
+*.trs
+*.exe
+*.dtbo
+.travis.yml
+.dir-locals.el
+.deps
+.libs
+debian/tmp/
+debian/changelog
+debian/unipi-os-configurator-data.postinst
+debian/unipi-os-configurator-data.preinst
