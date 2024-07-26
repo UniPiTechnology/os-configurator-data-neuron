@@ -49,6 +49,9 @@ products = {
 }
 
 boards = {
+  '4': Board(4, 'B_1000_1', None),
+  '5': Board(5, 'B_1000_2', None),
+  '6': Board(6, 'B_1000_3', None),
 }
 
 # Family names
