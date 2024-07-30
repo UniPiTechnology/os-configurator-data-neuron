@@ -7,6 +7,6 @@ ACTION=="add|remove", SUBSYSTEM=="leds", DEVPATH=="*iogroup1:led/leds/unipi:gree
 ACTION=="add|remove", SUBSYSTEM=="leds", DEVPATH=="*iogroup1:led/leds/unipi:green:uled-x2",  RUN+="/opt/unipi/tools/uhelper '' ULED1.2 1 $name"
 ACTION=="add|remove", SUBSYSTEM=="leds", DEVPATH=="*iogroup1:led/leds/unipi:green:uled-x3",  RUN+="/opt/unipi/tools/uhelper '' ULED1.3 1 $name"
 ACTION=="add|remove", SUBSYSTEM=="leds", DEVPATH=="*iogroup1:led/leds/unipi:green:uled-x4",  RUN+="/opt/unipi/tools/uhelper '' ULED1.4 1 $name"
-ACTION=="add|remove", SUBSYSTEM=="tty", DEVPATH=="*/tty/ttyS0", RUN+="/opt/unipi/tools/uhelper gprs tty 1 $name"
+ACTION=="add|remove", SUBSYSTEM=="tty", DEVPATH=="*/tty/ttyAMA0", RUN+="/opt/unipi/tools/uhelper gprs tty 1 $name"
 ACTION=="add|remove", SUBSYSTEM=="platform", DEVPATH=="*/platform/unipi-gprs", RUN+="/bin/mkdir -p /run/unipi-plc/by-sys/gprs"
 ACTION=="add|remove", SUBSYSTEM=="platform", DEVPATH=="*/platform/unipi-gprs", RUN+="/bin/ln -sf /sys/devices/platform/unipi-gprs/state -t /run/unipi-plc/by-sys/gprs"

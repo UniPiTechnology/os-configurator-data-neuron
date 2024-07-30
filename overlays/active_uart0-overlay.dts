@@ -1,0 +1,51 @@
+/dts-v1/;
+/plugin/;
+
+/* Restore UART0/ttyAMA0 over GPIOs 14 & 15.
+   Use ttyS0 as bluetooth port               */
+
+/* #include <dt-bindings/gpio/gpio.h> */
+
+/{
+	compatible = "brcm,bcm2835";
+
+	fragment@0 {
+		target = <&uart0>;
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart0_gpio14>;
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&uart1>;
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart1_bt_pins>;
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&bt>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@3 {
+		target = <&minibt>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target-path = "/aliases";
+		__overlay__ {
+			serial0 = "/soc/serial@7e201000";
+			serial1 = "/soc/serial@7e215040";
+		};
+	};
+};

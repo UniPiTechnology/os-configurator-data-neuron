@@ -2,6 +2,7 @@
 dtss += unipi_rtc-overlay.dts
 dtss += unipi_id-overlay.dts
 dtss += ds2482-overlay.dts
+dtss += active_uart0-overlay.dts
 
 dtss += unipi_s103-overlay.dts
 dtss += unipi_m103-overlay.dts
