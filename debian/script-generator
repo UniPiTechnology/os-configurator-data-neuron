@@ -52,7 +52,7 @@ done
 
 if [ "\$1" = "configure" ]; then
     if [ -x /opt/unipi/tools/os-configurator ]; then
-        /opt/unipi/tools/os-configurator --force
+        dpkg-trigger os-configurator-force
     fi
 fi
 
