@@ -16,8 +16,7 @@
 				spi-max-frequency = <12000000>;
 				status = "okay";
 				modbus-address = <1>;
-				neuron-board-index = <0>;
-				neuron-probe-always-succeeds = <0>;
+				probe-always-succeeds = <0>;
 				#address-cells = <1>;
 				#size-cells = <0>;
 				iogroup1: iogroup@1 {
@@ -78,8 +77,7 @@
 				spi-max-frequency = <12000000>;
 				status = "okay";
 				modbus-address = <2>;
-				neuron-board-index = <1>;
-				neuron-probe-always-succeeds = <0>;
+				probe-always-succeeds = <0>;
 				#address-cells = <1>;
 				#size-cells = <0>;
 				iogroup2: iogroup@2 {

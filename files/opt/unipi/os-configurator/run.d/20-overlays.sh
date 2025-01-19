@@ -20,7 +20,7 @@ dtoverlay=unipi_id
 dtoverlay=unipi_rtc
 EOF
 
-if [ -n "$USE_DS2482" ]; then
+if [ -n "$HAS_DS2482" ]; then
     echo "dtoverlay=ds2482"
 fi
 

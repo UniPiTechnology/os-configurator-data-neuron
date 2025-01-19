@@ -1,1 +1,1 @@
-deb https://repo.unipi.technology/debian ##DEBIAN_VERSION## neuron-main main neuron-test test
+deb [signed-by=/usr/share/keyrings/unipi_next.asc] https://repo.unipi.technology/debian ##DEBIAN_VERSION## neuron-main main neuron-test test
